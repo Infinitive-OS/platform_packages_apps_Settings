@@ -79,6 +79,8 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private static final String PROPERTY_QGP_VERSION = "persist.qgp.version";
     private static final String MBN_VERSION_PATH = "/persist/speccfg/mbnversion";
     private static final String QGP_VERSION_PATH = "/persist/speccfg/qgpversion";
+    private static final String KEY_MOD_VERSION = "mod_version";
+    private static final String KEY_MOD_BUILD_DATE = "build_date";
 
     static final int TAPS_TO_BE_A_DEVELOPER = 7;
 
@@ -127,6 +129,9 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         setStringSummary(KEY_DEVICE_MODEL, Build.MODEL);
         setStringSummary(KEY_BUILD_NUMBER, Build.DISPLAY);
         findPreference(KEY_BUILD_NUMBER).setEnabled(true);
+	setValueSummary(KEY_MOD_VERSION, "ro.io.version");
+        findPreference(KEY_MOD_VERSION).setEnabled(true);
+        setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
         //setValueSummary(KEY_QGP_VERSION, PROPERTY_QGP_VERSION);
         // Remove QGP Version if property is not present
         //removePreferenceIfPropertyMissing(getPreferenceScreen(), KEY_QGP_VERSION,
